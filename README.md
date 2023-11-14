@@ -1,4 +1,8 @@
-# Experiment-08- Encoders-and-decoders 
+```
+Developed by: PAVITHRA R
+RegisterNumber: 212222230106
+```
+# Experiment-08 Encoders and decoders. 
 ### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
@@ -60,37 +64,77 @@ D7 = X Y Z
 
 
 ### PROGRAM 
-/*
-Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+
+## ENCODER:
+```
+module encoder(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+or(a0,y7,y5,y3,y1);
+or(a1,y7,y6,y3,y2);
+or(a2,y7,y6,y5,y4);
+endmodule
+
+```
+## DECODER:
+```
+module decoder(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input a0,a1,a2;
+output y0,y1,y2,y3,y4,y5,y6,y7;
+wire a0bar,a1bar,a2bar;
+not(a0bar,a0);
+not(a1bar,a1);
+not(a2bar,a2);
+and(y0,a0bar,a1bar,a2bar);
+and(y1,a0,a1bar,a2bar);
+and(y2,a0bar,a1,a2bar);
+and(y3,a0,a1,a2bar);
+and(y4,a0bar,a1bar,a2);
+and(y5,a0,a1bar,a2);
+and(y6,a0bar,a1,a2);
+and(y7,a0,a1,a2);
+endmodule
+
+
+```
 
 
 
 
+### RTL DIAGRAM:  
+
+## ENCODER:
+
+![image](https://github.com/Pavithraramasaamy/Experiment-08-Encoders-and-decoders-/assets/118596964/bc5ff93e-beab-4cb8-82c8-4002e45a71f9)
 
 
-### RTL LOGIC  
+## DECODER:
 
-
-
-
-
+![image](https://github.com/Pavithraramasaamy/Experiment-08-Encoders-and-decoders-/assets/118596964/1863b149-82c4-479a-a2e7-b6234f45c616)
 
 
 
 ### TIMING DIGRAMS  
 
+## ENCODER:
+![image](https://github.com/Pavithraramasaamy/Experiment-08-Encoders-and-decoders-/assets/118596964/cc69540b-ece9-4ca5-8116-d1ac63dab0cc)
 
 
+## DECODER:
+![image](https://github.com/Pavithraramasaamy/Experiment-08-Encoders-and-decoders-/assets/118596964/2a637aa0-ddf9-45d9-942d-7a803eb1d982)
 
 
 ### TRUTH TABLE 
 
+## ENCODER:
+
+![image](https://github.com/Pavithraramasaamy/Experiment-08-Encoders-and-decoders-/assets/118596964/ca738b77-c9a9-431d-bd7a-a6a4f8da99cc)
 
 
+## DECODER:
 
+![image](https://github.com/Pavithraramasaamy/Experiment-08-Encoders-and-decoders-/assets/118596964/972697bd-5332-4274-ac2d-325a5cc90d4c)
 
 
 ### RESULTS 
+Thus the program to design encoder and decoder is executed successfully .
